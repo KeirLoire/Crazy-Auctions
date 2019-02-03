@@ -27,7 +27,7 @@ Messages:
   Win-Bidding: '&7You have just won a bid for &a$%Price%&7. Do /Ah Collect to collect your winnings.'
   Player-Bought-Item: '&7%Player% has bought your item for &a$%Price%.'
   Someone-Won-Players-Bid: '&7%Player% has won your item you from a bid for &a$%Price%.'
-  Added-Item-To-Auction: '&7You have just added an item to the crazy auctions for &a$%Price%&7.'
+  Added-Item-To-Auction: '&b%Item% x%Amount%&e has been added to auction house for $%Price%.'
   Bid-Msg: '&7You have just bid &a$%Bid% &7on that item.'
   Selling-Disabled: '&cThe selling option is disabled.'
   Bidding-Disabled: '&cThe bidding option is disabled.'

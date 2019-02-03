@@ -5,6 +5,8 @@ import me.badbones69.crazyauctions.api.FileManager.Files;
 import me.badbones69.crazyauctions.api.events.AuctionListEvent;
 import me.badbones69.crazyauctions.controllers.GUI;
 import me.badbones69.crazyauctions.currency.Vault;
+
+import org.apache.commons.lang.WordUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -285,7 +287,19 @@ public class Main extends JavaPlugin implements Listener {
 						Bukkit.getPluginManager().callEvent(new AuctionListEvent(player, type, I, price));
 						HashMap<String, String> placeholders = new HashMap<>();
 						placeholders.put("%Price%", price + "");
-						player.sendMessage(Messages.ADDED_ITEM_TO_AUCTION.getMessage(placeholders));
+						placeholders.put("%Amount%", amount + "");
+						if(item.hasItemMeta()) {
+							if(item.getItemMeta().getDisplayName() == null) {
+								placeholders.put("%Item%", WordUtils.capitalizeFully(item.getType().name().toLowerCase().replace("_", " ")) + "");
+							}
+							else {
+								placeholders.put("%Item%", item.getItemMeta().getDisplayName() + "");
+							}
+						}
+						else {
+							placeholders.put("%Item%", WordUtils.capitalizeFully(item.getType().name().toLowerCase().replace("_", " ")) + "");
+						}
+						Bukkit.getServer().broadcastMessage(Messages.ADDED_ITEM_TO_AUCTION.getMessage(placeholders));
 						if(item.getAmount() <= 1 || (item.getAmount() - amount) <= 0) {
 							Methods.setItemInHand(player, new ItemStack(Material.AIR));
 						}else {

@@ -10,3 +10,10 @@ target/classes/
 target/
 
 \.DS_Store
+/bin/
+
+.settings/
+
+\.classpath
+
+\.project
